@@ -1,6 +1,6 @@
 - 23/03/2022
-- Foi criado uma past chamada Crud dentro do BILTIFUL.Core com conexão de banco de dados,
-e as demais funções para as alterações que eu realizei.
+- Foi criado uma past chamada Crud com uma classe chamada cadastro_crud dentro do BILTIFUL.Core 
+- com conexão de banco de dados e as demais funções para as alterações que eu realizei.
 
 
 ITENS NÃO FEITOS
