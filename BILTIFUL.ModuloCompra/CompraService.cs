@@ -1,6 +1,7 @@
 ﻿using BILTIFUL.Core;
 using BILTIFUL.Core.Controles;
 using BILTIFUL.Core.Entidades;
+using BILTIFUL.Crud;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,7 @@ namespace BILTIFUL.ModuloCompra
 {
     public class CompraService
     {
+        Cadastro_Crud cadastro_crud = new Cadastro_Crud();
         CadastroService cadastroService = new CadastroService();
 
         //List<Fornecedor> testes = new List<Fornecedor>();
@@ -202,7 +204,7 @@ namespace BILTIFUL.ModuloCompra
                     return;
                 }
 
-                Fornecedor fornecedorCompra = BuscarCnpj(cnpj.ToString(), cadastroService.cadastros.fornecedores);
+                Fornecedor fornecedorCompra = BuscarCnpj(cnpj.ToString(), cadastro_crud.PegarFornecedor());
                 if (fornecedorCompra == null)
                 {
                     Console.WriteLine("\t\t\t\t\tFornecedor nao encontrado.");
@@ -396,8 +398,10 @@ namespace BILTIFUL.ModuloCompra
 
 
                 Compra compra = new Compra(cod, cnpj, valorTotalString);
-                cadastroService.cadastros.compras.Add(compra);
-                new Controle(compra);
+                //cadastroService.cadastros.compras.Add(compra);
+                //new Controle(compra);
+                cadastro_crud.InserirCompra(compra);
+
                 for (int i = 0; i < cont; i++)
                 {
 
@@ -406,8 +410,10 @@ namespace BILTIFUL.ModuloCompra
 
 
                     ItemCompra itemCompra = new ItemCompra(cod, idMPrima[i], quantidadeString[i], stringValor[i], totalItemString[i]);
-                    new Controle(itemCompra);
-                    cadastroService.cadastros.itenscompra.Add(itemCompra);
+                    //new Controle(itemCompra);
+                    //cadastroService.cadastros.itenscompra.Add(itemCompra);
+                    cadastro_crud.InserirItemCompra(itemCompra);
+                    
                 }
             }
             else

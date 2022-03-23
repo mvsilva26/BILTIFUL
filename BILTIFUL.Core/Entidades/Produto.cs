@@ -39,7 +39,7 @@ namespace BILTIFUL.Core.Entidades
             return $"\n\t\t\t\t\t----------------------------\n" +
                    $"\n\t\t\t\t\tCod. Barra: {CodigoBarras}\n" +
                    $"\t\t\t\t\tNome: {Nome}\n" +
-                   $"\t\t\t\t\tValor Unitário: R$ {float.Parse(ValorVenda.Insert(3, ","))}\n"+
+                   $"\t\t\t\t\tValor Unitário: R$ {ValorVenda}\n"+
                    $"\n\t\t\t\t\t----------------------------\n" ;
         }
 
@@ -52,7 +52,7 @@ namespace BILTIFUL.Core.Entidades
             return "\n\t\t\t-------------------------------------------\n" +
                 "\t\t\tCodigo de barras: " + CodigoBarras + "\n" +
                 "\t\t\tNome: " + Nome + "\n" +
-                "\t\t\tValor venda: " + string.Format(CultureInfo.GetCultureInfo("pt-BR"), " {0:C}", float.Parse(ValorVenda.Insert(3,","))) + "\n" +
+                "\t\t\tValor venda: " + ValorVenda + "\n" +
                 "\t\t\tData de ultima venda: " + UltimaVenda.ToString("dd/MM/yyyy") + "\n" +
                 "\t\t\tData de cadastro: " + DataCadastro.ToString("dd/MM/yyyy") + "\n" +
                 "\t\t\tSituação: " + Situacao;
